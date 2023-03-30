@@ -25,34 +25,37 @@
                         <div class="card-header">Create list element</div>
                         <div class="card-body">
                             <h6 class="card-title">Add Element</h6>
-                            <input type="text" name="addElement" id="addElement" v-model="newElementList"
-                                @keyup.enter="addNewEl">
-                            <button type="button" class="btn btn-outline-info btn-sm ms-3" @click="addNewEl">
-                                <i class="fa-solid fa-plus fs-6">
-                                </i>
-                            </button>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <input class="w-75" type="text" name="addElement" id="addElement"
+                                    v-model="newElementList" @keyup.enter="addNewEl">
+                                <button type="button" class="btn btn-outline-info btn-sm ms-3 lh-1 px-2"
+                                    @click="addNewEl">
+                                    <i class="fa-solid fa-plus fs-6">
+                                    </i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <div class="card border-info mb-3">
                         <div class="card-header">Your list</div>
                         <div class="card-body">
                             <ul class="list-unstyled" v-if="list.length > 0">
-                                <li class="d-flex justify-content-between mb-3" v-for="(element, index) in list">
+                                <li class="d-flex justify-content-between" v-for="(element, index) in list">
                                     <span
                                         :class="element.done ? 'text-decoration-line-through' : ''">{{element.text}}</span>
                                     <div>
-                                        <button type="button" class="btn btn-outline-success btn-sm me-3"
+                                        <button type="button" class="btn btn-outline-success btn-sm me-3 lh-1 px-1"
                                             @click="taked(index)">
                                             <i class="fa-sharp fa-solid fa-check fs-6"></i>
                                         </button>
-                                        <button type="button" class="btn btn-outline-danger btn-sm"
+                                        <button type="button" class="btn btn-outline-danger btn-sm lh-1"
                                             @click="removeEl(index)">
                                             <i class="fa-sharp fa-solid fa-xmark fs-6"></i>
                                         </button>
                                     </div>
                                 </li>
                             </ul>
-                            <h3 v-else>Your list is empty</h3>
+                            <h4 class="text-info" v-else>Your list is empty</h4>
                         </div>
                     </div>
                 </div>
