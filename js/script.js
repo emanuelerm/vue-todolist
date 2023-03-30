@@ -29,15 +29,15 @@ createApp({
             list: [
                 {
                     text: "costolette",
-                    done: true
+                    done: false
                 },
                 {
                     text: "birra",
-                    done: true
+                    done: false
                 },
                 {
                     text: "verdura",
-                    done: true
+                    done: false
                 },
             ],
             newElementList: "",
@@ -47,7 +47,7 @@ createApp({
         addNewEl() {
             const elToPush = {
                 text: this.newElementList,
-                done: true,
+                done: false,
             }
             this.list.push(elToPush);
             this.newElementList = "";
