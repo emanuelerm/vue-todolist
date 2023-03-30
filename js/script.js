@@ -29,15 +29,15 @@ createApp({
             list: [
                 {
                     text: "costolette",
-                    done: false
+                    done: true
                 },
                 {
                     text: "birra",
-                    done: false
+                    done: true
                 },
                 {
                     text: "verdura",
-                    done: false
+                    done: true
                 },
             ],
             newElementList: "",
@@ -47,10 +47,20 @@ createApp({
         addNewEl() {
             const elToPush = {
                 text: this.newElementList,
-                done: false,
+                done: true,
             }
             this.list.push(elToPush);
             this.newElementList = "";
+        },
+        taked(index) {
+            if (this.list[index].done === true) {
+                this.list[index].done = false;
+            } else {
+                this.list[index].done = true;
+            }
+        },
+        removeEl(index) {
+            this.list.splice(index, 1);
         }
     }
 }).mount("#app")

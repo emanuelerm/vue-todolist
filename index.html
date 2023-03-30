@@ -19,12 +19,14 @@
     <div id="app">
         <div class="container">
             <div class="row text-center justify-content-center align-items-center">
+                <h1 class="text-info-emphasis">To-do Vue</h1>
                 <div class="col-12 col-md-8 col-lg-6 col-xl-4">
                     <div class="card border-info mb-3">
                         <div class="card-header">Create list element</div>
                         <div class="card-body">
                             <h6 class="card-title">Add Element</h6>
-                            <input type="text" name="addElement" id="addElement" v-model="newElementList">
+                            <input type="text" name="addElement" id="addElement" v-model="newElementList"
+                                @keyup.enter="addNewEl">
                             <button type="button" class="btn btn-outline-info btn-sm ms-3" @click="addNewEl">
                                 <i class="fa-solid fa-plus fs-6">
                                 </i>
@@ -34,15 +36,23 @@
                     <div class="card border-info mb-3">
                         <div class="card-header">Your list</div>
                         <div class="card-body">
-                            <ul class="list-unstyled" v-for="(element, index) in list">
-                                <li class="d-flex justify-content-between">
+                            <ul class="list-unstyled" v-if="list.length > 0">
+                                <li class="d-flex justify-content-between mb-3" v-for="(element, index) in list">
                                     <span
                                         :class="element.done ? 'text-decoration-line-through' : ''">{{element.text}}</span>
-                                    <button type="button" class="btn btn-outline-danger btn-sm">
-                                        <i class="fa-sharp fa-solid fa-xmark fs-6"></i>
-                                    </button>
+                                    <div>
+                                        <button type="button" class="btn btn-outline-success btn-sm me-3"
+                                            @click="taked(index)">
+                                            <i class="fa-sharp fa-solid fa-check fs-6"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-outline-danger btn-sm"
+                                            @click="removeEl(index)">
+                                            <i class="fa-sharp fa-solid fa-xmark fs-6"></i>
+                                        </button>
+                                    </div>
                                 </li>
                             </ul>
+                            <h3 v-else>La lista della spesa vuota</h3>
                         </div>
                     </div>
                 </div>
