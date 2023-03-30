@@ -24,8 +24,8 @@
                         <div class="card-header">Create list element</div>
                         <div class="card-body">
                             <h6 class="card-title">Add Element</h6>
-                            <input type="text" name="addElement" id="addElement">
-                            <button type="button" class="btn btn-outline-info btn-sm ms-3">
+                            <input type="text" name="addElement" id="addElement" v-model="newElementList">
+                            <button type="button" class="btn btn-outline-info btn-sm ms-3" @click="addNewEl">
                                 <i class="fa-solid fa-plus fs-6">
                                 </i>
                             </button>
@@ -34,9 +34,10 @@
                     <div class="card border-info mb-3">
                         <div class="card-header">Your list</div>
                         <div class="card-body">
-                            <ul class="list-unstyled">
+                            <ul class="list-unstyled" v-for="(element, index) in list">
                                 <li class="d-flex justify-content-between">
-                                    <span></span>
+                                    <span
+                                        :class="element.done ? 'text-decoration-line-through' : ''">{{element.text}}</span>
                                     <button type="button" class="btn btn-outline-danger btn-sm">
                                         <i class="fa-sharp fa-solid fa-xmark fs-6"></i>
                                     </button>

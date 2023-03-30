@@ -26,10 +26,31 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-
+            list: [
+                {
+                    text: "costolette",
+                    done: false
+                },
+                {
+                    text: "birra",
+                    done: false
+                },
+                {
+                    text: "verdura",
+                    done: false
+                },
+            ],
+            newElementList: "",
         }
     },
     methods: {
-
+        addNewEl() {
+            const elToPush = {
+                text: this.newElementList,
+                done: false,
+            }
+            this.list.push(elToPush);
+            this.newElementList = "";
+        }
     }
 }).mount("#app")
