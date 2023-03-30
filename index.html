@@ -17,7 +17,36 @@
 <body>
 
     <div id="app">
-
+        <div class="container">
+            <div class="row text-center justify-content-center align-items-center">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-4">
+                    <div class="card border-info mb-3">
+                        <div class="card-header">Create list element</div>
+                        <div class="card-body">
+                            <h6 class="card-title">Add Element</h6>
+                            <input type="text" name="addElement" id="addElement">
+                            <button type="button" class="btn btn-outline-info btn-sm ms-3">
+                                <i class="fa-solid fa-plus fs-6">
+                                </i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card border-info mb-3">
+                        <div class="card-header">Your list</div>
+                        <div class="card-body">
+                            <ul class="list-unstyled">
+                                <li class="d-flex justify-content-between">
+                                    <span></span>
+                                    <button type="button" class="btn btn-outline-danger btn-sm">
+                                        <i class="fa-sharp fa-solid fa-xmark fs-6"></i>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./js/script.js"></script>
